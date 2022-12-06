@@ -12,5 +12,5 @@ defmodule QRCode do
   See `QRCode.QR.create!/3`
   """
   defdelegate create!(text, ecc_level \\ :low, mode \\ :byte), to: QRCode.QR
-  
+
 end

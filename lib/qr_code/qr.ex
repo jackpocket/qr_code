@@ -118,7 +118,7 @@ defmodule QRCode.QR do
   """
   @spec create(String.t(), level(), mode()) :: Result.t(String.t(), t())
   def create(orig, level \\ :low, mode \\ :byte) when level(level) and mode(mode) do
-    %__MODULE__{orig: orig, ecc_level: level}
+    %__MODULE__{orig: orig, ecc_level: level, mode: mode}
     |> QRCode.CharacterCapacity.put_version()
     |> Result.map(&QRCode.DataEncoding.encode/1)
     |> Result.map(&QRCode.ErrorCorrection.put/1)
