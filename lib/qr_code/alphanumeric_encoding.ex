@@ -79,7 +79,6 @@ defmodule QRCode.AlphanumericEncoding do
   def convert_chunks(<<first::utf8, second::utf8, rest::binary>>, acc)
       when is_map_key(@mapping, first) and is_map_key(@mapping, second) do
     chunk_value = @mapping[first] * 45 + @mapping[second]
-    #    padded_chunk = chunk_value |> Integer.to_string(2) |> String.pad_leading(11, "0")
     padded_chunk = <<chunk_value::size(11)>>
     convert_chunks(rest, [padded_chunk | acc])
   end
