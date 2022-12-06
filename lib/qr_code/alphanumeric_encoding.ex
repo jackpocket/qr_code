@@ -85,7 +85,6 @@ defmodule QRCode.AlphanumericEncoding do
   end
 
   def convert_chunks(<<last::utf8>>, acc) when is_map_key(@mapping, last) do
-    #    padded_value = @mapping[last] |> Integer.to_string(2) |> String.pad_leading(6, "0")
     padded_value = <<@mapping[last]::size(6)>>
     convert_chunks(<<>>, [padded_value | acc])
   end
