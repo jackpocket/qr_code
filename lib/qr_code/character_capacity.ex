@@ -22,15 +22,6 @@ defmodule QRCode.CharacterCapacity do
   defguard is_level(value) when value in @levels
   defguard is_mode(value) when value in @modes
   defguard is_version(value) when is_integer(value) and value > 0 and value <= 40
-  #  @capacities (for mode <- @modes, into: %{} do
-  #                 level_map =
-  #                   for level <- @levels, into: %{} do
-  #                     converted = for {m, l} <- __MODULE__.get_level(level, mode), into: %{}, do: {l, m}
-  #                     {level, converted}
-  #                   end
-  #
-  #                 {mode, level_map}
-  #               end)
 
   def put_version(%QR{mode: :byte} = qr) do
     ByteMode.put_version(qr)

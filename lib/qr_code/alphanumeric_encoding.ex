@@ -79,19 +79,16 @@ defmodule QRCode.AlphanumericEncoding do
   def convert_chunks(<<first::utf8, second::utf8, rest::binary>>, acc)
       when is_map_key(@mapping, first) and is_map_key(@mapping, second) do
     chunk_value = @mapping[first] * 45 + @mapping[second]
-    #    padded_chunk = chunk_value |> Integer.to_string(2) |> String.pad_leading(11, "0")
     padded_chunk = <<chunk_value::size(11)>>
     convert_chunks(rest, [padded_chunk | acc])
   end
 
   def convert_chunks(<<last::utf8>>, acc) when is_map_key(@mapping, last) do
-    #    padded_value = @mapping[last] |> Integer.to_string(2) |> String.pad_leading(6, "0")
     padded_value = <<@mapping[last]::size(6)>>
     convert_chunks(<<>>, [padded_value | acc])
   end
 
   def convert_chunks(<<>>, acc) do
-    #    acc |> Enum.reverse() |> List.to_string()
     for chunk <- Enum.reverse(acc), into: <<>>, do: chunk
   end
 
@@ -100,11 +97,4 @@ defmodule QRCode.AlphanumericEncoding do
     nil
   end
 
-  #  defp zero_pad(expected_length, chunk) when bit_size(chunk) < expected_length do
-  #    <<0::size(expected_length - bit_size(chunk))>>
-  #  end
-  #
-  #  defp zero_pad(expected_length, chunk) do
-  #    chunk
-  #  end
 end

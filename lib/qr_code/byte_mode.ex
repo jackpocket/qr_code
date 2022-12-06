@@ -186,38 +186,4 @@ defmodule QRCode.ByteMode do
   @impl QRCode.CharacterCapacity
   def level_high(), do: @level_high
 
-  #  @spec put_version(QR.t()) :: Result.t(String.t(), QR.t())
-  #  def put_version(%QR{orig: orig, ecc_level: :low} = qr) do
-  #    @level_low
-  #    |> find_version(byte_size(orig))
-  #    |> Result.map(fn ver -> %{qr | version: ver} end)
-  #  end
-  #
-  #  def put_version(%QR{orig: orig, ecc_level: :medium} = qr) do
-  #    @level_medium
-  #    |> find_version(byte_size(orig))
-  #    |> Result.map(fn ver -> %{qr | version: ver} end)
-  #  end
-  #
-  #  def put_version(%QR{orig: orig, ecc_level: :quartile} = qr) do
-  #    @level_quartile
-  #    |> find_version(byte_size(orig))
-  #    |> Result.map(fn ver -> %{qr | version: ver} end)
-  #  end
-  #
-  #  def put_version(%QR{orig: orig, ecc_level: :high} = qr) do
-  #    @level_high
-  #    |> find_version(byte_size(orig))
-  #    |> Result.map(fn ver -> %{qr | version: ver} end)
-  #  end
-  #
-  #  defp find_version(level, bytes) do
-  #    Enum.reduce_while(level, {:error, "Input string can't be encoded"}, fn {max, ver}, acc ->
-  #      if bytes <= max do
-  #        {:halt, {:ok, ver}}
-  #      else
-  #        {:cont, acc}
-  #      end
-  #    end)
-  #  end
 end
