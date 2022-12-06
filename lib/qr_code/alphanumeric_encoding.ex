@@ -91,7 +91,6 @@ defmodule QRCode.AlphanumericEncoding do
   end
 
   def convert_chunks(<<>>, acc) do
-    #    acc |> Enum.reverse() |> List.to_string()
     for chunk <- Enum.reverse(acc), into: <<>>, do: chunk
   end
 
