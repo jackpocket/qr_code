@@ -98,11 +98,4 @@ defmodule QRCode.AlphanumericEncoding do
     nil
   end
 
-  #  defp zero_pad(expected_length, chunk) when bit_size(chunk) < expected_length do
-  #    <<0::size(expected_length - bit_size(chunk))>>
-  #  end
-  #
-  #  defp zero_pad(expected_length, chunk) do
-  #    chunk
-  #  end
 end
