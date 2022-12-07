@@ -21,7 +21,7 @@ defmodule QRCode.MixProject do
         "coveralls.post": :test,
         "coveralls.html": :test
       ],
-      source_url: "https://github.com/jackpocket/qr_code",
+      source_url: "https://github.com/iodevs/qr_code",
       start_permanent: Mix.env() == :prod,
       test_coverage: [tool: ExCoveralls],
       version: @version
@@ -66,9 +66,8 @@ defmodule QRCode.MixProject do
       ],
       licenses: ["BSD-4-Clause"],
       links: %{
-        "GitHub" => "https://github.com/jackpocket/qr_code"
-      },
-      organization: "jackpocket"
+        "GitHub" => "https://github.com/iodevs/qr_code"
+      }
     ]
   end
 
