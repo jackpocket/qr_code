@@ -130,11 +130,11 @@ defmodule QRCode.QR do
   end
 
   @doc """
-  The same as `create/2`, but raises a `QRCode.Error` exception if it fails.
+  The same as `create/3`, but raises a `QRCode.Error` exception if it fails.
   """
   @spec create!(String.t(), level(), mode()) :: t()
   def create!(text, level \\ :low, mode \\ :byte) when level(level) and mode(mode) do
-    case create(text, level) do
+    case create(text, level, mode) do
       {:ok, qr} -> qr
       {:error, msg} -> raise QRCode.Error, message: msg
     end
